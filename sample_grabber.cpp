@@ -35,6 +35,8 @@ void sample_grabber::grab_samples()
     uhd::tune_request_t tune_request(868.3e6);
     usrp->set_rx_freq(tune_request);
 
+    usrp->set_rx_gain(15);
+
     uhd::stream_args_t stream_args("fc32", "sc16");
     uhd::rx_streamer::sptr rx_stream = usrp->get_rx_stream(stream_args);
 
